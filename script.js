@@ -12,35 +12,36 @@ function makeColorCircles() {
 }
 
 function sortAnswer() {
-  const randomChoice = Math.ceil(Math.random() * 6) - 1
+  const randomChoice = Math.ceil(Math.random() * 6) - 1;
   const getCircle = document.querySelectorAll('.ball');
-  getCircle[randomChoice].setAttribute('id', 'correct')
-  let rgbAnswer = window.getComputedStyle(getCircle[randomChoice]).getPropertyValue("background-color")
-  document.getElementById('rgb-color').innerText = rgbAnswer; 
-}   
+  getCircle[randomChoice].setAttribute('id', 'correct');
+  const rgbAnswer = window.getComputedStyle(getCircle[randomChoice])
+    .getPropertyValue('background-color');
+  document.getElementById('rgb-color').innerText = rgbAnswer;
+}
 
 function testShot() {
-  const getCircle = document.querySelectorAll('.ball')
+  const getCircle = document.querySelectorAll('.ball');
   for (let index = 0; index < getCircle.length; index += 1) {
-    getCircle[index].addEventListener('click', function(event) {
-      let shot = window.getComputedStyle(event.target).getPropertyValue("background-color");
+    getCircle[index].addEventListener('click', (event) => {
+      const shot = window.getComputedStyle(event.target).getPropertyValue('background-color');
       if (shot === document.getElementById('rgb-color').innerText) {
-        document.getElementById('answer').innerText = 'Acertou!'; 
+        document.getElementById('answer').innerText = 'Acertou!';
       } else {
-        document.getElementById('answer').innerText = 'Errou! Tente novamente!!'; 
+        document.getElementById('answer').innerText = 'Errou! Tente novamente!!';
       }
-    })
+    });
   }
 }
 
 function resetGame() {
-  let getBtn = document.getElementById('reset-game');
+  const getBtn = document.getElementById('reset-game');
   getBtn.addEventListener('click', () => {
-    window.location.reload()
-  })
+    window.location.reload();
+  });
 }
 
 makeColorCircles();
-sortAnswer()
-testShot() 
-resetGame()
+sortAnswer();
+testShot();
+resetGame();
