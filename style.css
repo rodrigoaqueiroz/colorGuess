@@ -4,4 +4,10 @@
   border-radius: 50%;
   margin: 40px;
   display: inline-block;
+  border: solid black 02px;
 }
+
+#placar p {
+  display: inline-block;
+}
+

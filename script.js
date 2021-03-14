@@ -20,6 +20,14 @@ function sortAnswer() {
   document.getElementById('rgb-color').innerText = rgbAnswer;
 }
 
+function increaseScore() {
+  let currentScore = document.getElementById('score').innerHTML;
+  currentScore = parseInt(currentScore, 10);
+  if (document.getElementById('answer').innerText === 'Acertou!') {
+    document.getElementById('score').innerHTML = currentScore + 3;
+    console.log(currentScore);
+  }
+}
 function testShot() {
   const getCircle = document.querySelectorAll('.ball');
   for (let index = 0; index < getCircle.length; index += 1) {
@@ -27,6 +35,7 @@ function testShot() {
       const shot = window.getComputedStyle(event.target).getPropertyValue('background-color');
       if (shot === document.getElementById('rgb-color').innerText) {
         document.getElementById('answer').innerText = 'Acertou!';
+        increaseScore();
       } else {
         document.getElementById('answer').innerText = 'Errou! Tente novamente!!';
       }
@@ -37,11 +46,16 @@ function testShot() {
 function resetGame() {
   const getBtn = document.getElementById('reset-game');
   getBtn.addEventListener('click', () => {
-    window.location.reload();
+    document.getElementById('answer').innerText = 'Escolha uma cor';
+    makeColorCircles();
+    sortAnswer();
+    testShot();
   });
 }
 
-makeColorCircles();
-sortAnswer();
-testShot();
-resetGame();
+window.onload = () => {
+  makeColorCircles();
+  sortAnswer();
+  testShot();
+  resetGame();
+};
