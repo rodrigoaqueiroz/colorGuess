@@ -49,7 +49,6 @@ function resetGame() {
     document.getElementById('answer').innerText = 'Escolha uma cor';
     makeColorCircles();
     sortAnswer();
-    testShot();
   });
 }
 
