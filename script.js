@@ -25,7 +25,6 @@ function increaseScore() {
   currentScore = parseInt(currentScore, 10);
   if (document.getElementById('answer').innerText === 'Acertou!') {
     document.getElementById('score').innerHTML = currentScore + 3;
-    console.log(currentScore);
   }
 }
 function testShot() {
@@ -36,6 +35,8 @@ function testShot() {
       if (shot === document.getElementById('rgb-color').innerText) {
         document.getElementById('answer').innerText = 'Acertou!';
         increaseScore();
+        makeColorCircles();
+        sortAnswer();
       } else {
         document.getElementById('answer').innerText = 'Errou! Tente novamente!!';
       }
@@ -47,6 +48,7 @@ function resetGame() {
   const getBtn = document.getElementById('reset-game');
   getBtn.addEventListener('click', () => {
     document.getElementById('answer').innerText = 'Escolha uma cor';
+    document.getElementById('score').innerText = 0;
     makeColorCircles();
     sortAnswer();
   });
