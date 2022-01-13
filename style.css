@@ -41,6 +41,10 @@ button {
   height: 64px;
 }
 
+#circles , button {
+  cursor: pointer;
+}
+
 button:hover {
   background-color: #fdb7b9ed;
 }
