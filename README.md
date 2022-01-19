@@ -1,4 +1,4 @@
-### Project Color Guess (projeto desenvolvido pela Trybe)
+### Project Color Guess
 
 ---
 
